@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+      <div class="header">
+        <h3 class="text-muted">Registration form</h3>
+      </div>
+       <div class="row">
+       <!-- Display the success message on successful submission and validation
+            of the contact form data.
+        -->
+       <div class="alert alert-success">
+         Your registration completed successfully.
+       </div>
+       </div>
+    </div>
+    <p class="form-control">Click <a href="{% url 'login' %}">Here</a> To login</p>
+{% endblock %}

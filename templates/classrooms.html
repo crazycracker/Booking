@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="/static/css/imageStyling.css" xmlns="http://www.w3.org/1999/html"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/seatStyling.css"/>
+    <style type="text/css">
+        .container {
+            margin-top: 10px;
+        }
+    </style>
+{% endblock %}
+{% block javascript %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/static/js/seats.js"></script>
+{% endblock %}
+{% block content %}
+    <div class="container">
+    <ul class="nav nav-tabs">
+        <li><a data-toggle="tab" href="#home">CC1</a></li>
+        <li><a data-toggle="tab" href="#menu1">CC2</a></li>
+        <li><a data-toggle="tab" href="#menu2">CC3</a></li>
+    </ul>
+
+
+    <div class="tab-content">
+        <div id="home" class="tab-pane fade in active">
+
+            <div class="row">
+
+
+                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                    {% for class in rooms %}
+                        <div class="btn-group" role="group" aria-label="first">
+                        <form action="{% url 'cc1' room_number=class.room_number %}">
+                            <input type="submit" class="btn btn-secondary" value="{{ class.room_number }}"/>
+                            </form>
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
+            <div id="menu1" class="tab-pane fade">
+                <h3>CC2</h3>
+            </div>
+            <div id="menu2" class="tab-pane fade">
+                <h3>CC3</h3>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

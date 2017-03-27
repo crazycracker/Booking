@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title>How to add calendar using jQuery and fullCalendar</title>
+{% endblock %}
+{% block head %}
+    <!--FullCalendar Dependencies-->
+    <link rel="stylesheet" type="text/css" href="/static/css/roomStyling.css"/>
+    <link href='/static/node_modules/fullcalendar/dist/fullcalendar.css' rel='stylesheet'/>
+    <link href='/static/node_modules/fullcalendar/dist/fullcalendar.print.css' rel='stylesheet' media='print'/>
+{% endblock %}
+
+{% block content %}
+    <!--FullCalendar container div-->
+    <h3>{{ number }}</h3>
+    <div id='calendar'></div>
+{% endblock %}
+{% block javascript %}
+    <script src='/static/js/jquery.min.js'></script>
+    <script src='/static/js/jquery-ui-1.10.2.custom.min.js'></script>
+
+    <!--FullCalendar-->
+    <script src='/static/node_modules/fullcalendar/dist/fullcalendar.min.js'></script>
+    <script src='/static/node_modules/fullcalendar/dist/fullcalendar.js'></script>
+    <script src='/static/node_modules/fullcalendar/dist/calendermain.js'></script>
+{% endblock %}
