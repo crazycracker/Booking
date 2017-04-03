@@ -1,4 +1,4 @@
-from datetime import datetime
+from django.utils import timezone
 
 from django.db import models
 
@@ -42,13 +42,14 @@ class requestTable(models.Model):
         max_length=10,
     )
 
-    date = models.DateField(
-        verbose_name="booking date",
-        default=datetime.now().strftime("YYYY-MM-DD")
+    startDateTime = models.CharField(
+        verbose_name="startDateTime",
+        max_length=30
     )
 
-    time = models.TimeField(
-        verbose_name="booking time"
+    endDateTime = models.CharField(
+        verbose_name="endDateTime",
+        max_length=30
     )
 
     reserved_by = models.CharField(
@@ -66,10 +67,11 @@ class requestTable(models.Model):
         max_length=100
     )
 
-    booking_status = models.IntegerField(
+    booking_status = models.CharField(
         verbose_name="booking status",
+        default=0,
+        max_length=1
     )
-
 
 
 class classroom(models.Model):
